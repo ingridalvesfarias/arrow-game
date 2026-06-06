@@ -107,7 +107,7 @@
       <path d="M526,195l5-20l22,5l-9,16L526,195z M558,164l32-44l-35-9l-19,51L558,164z" />
     </g>
   </svg>
-  <span>Puxe a flecha para trás e lance-a!</span>
+  <span>Draw back an arrow and launch it!</span>
 
   <script>
     var svg = document.querySelector("svg");
@@ -132,6 +132,7 @@
     }
 
     function aim(e) {
+
       var point = getMouseSVG(e);
       point.x = Math.min(point.x, pivot.x - 7);
       point.y = Math.max(point.y, pivot.y + 7);
@@ -189,7 +190,6 @@
     }
 
     function loose() {
-      // lançar flecha
       window.removeEventListener("mousemove", aim);
       window.removeEventListener("mouseup", loose);
 
@@ -209,7 +209,6 @@
       newArrow.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#arrow");
       arrows.appendChild(newArrow);
 
-      // animação da flecha usando o caminho do arco
       var path = MorphSVGPlugin.pathDataToBezier("#arc");
       TweenMax.to([newArrow], 0.5, {
         force3D: true,
@@ -233,7 +232,6 @@
     }
 
     function hitTest(tween) {
-
       var arrow = tween.target[0];
       var transform = arrow._gsTransform;
       var radians = (transform.rotation * Math.PI) / 180;
@@ -264,7 +262,6 @@
     }
 
     function showMessage(selector) {
-
       TweenMax.killTweensOf(selector);
       TweenMax.killChildTweensOf(selector);
       TweenMax.set(selector, {
@@ -298,14 +295,13 @@
     }
 
     function getMouseSVG(e) {
-
       cursor.x = e.clientX;
       cursor.y = e.clientY;
       return cursor.matrixTransform(svg.getScreenCTM().inverse());
     }
 
     function getIntersection(segment1, segment2) {
-
+      var dx1 = segment1.x2 - segment1.x1;
       var dy1 = segment1.y2 - segment1.y1;
       var dx2 = segment2.x2 - segment2.x1;
       var dy2 = segment2.y2 - segment2.y1;
