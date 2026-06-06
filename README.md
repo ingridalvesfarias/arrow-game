@@ -30,6 +30,7 @@ Como este projeto utiliza CDN para carregar as bibliotecas GSAP, basta abrir o a
 * **Feedback Visual**: As mensagens de "Love You" ou "Miss You" aparecem animadas sobre a tela dependendo da precisão do seu tiro.
 
 ## Imagem do Projeto:
+Acesse: https://arrow-game-zmzh.vercel.app/
 
 <img src="img/imagem do projeto.png" alt="imagem do projeto">
 
